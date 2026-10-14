@@ -1,1 +1,206 @@
+blueprint:
+  name: Zooz ZEN34 Remote Scene Control (Z-Wave JS)
+  description: Use the Zooz ZEN34 remote to trigger actions for up and down paddle presses (press, double press, triple press, hold, and release) using Z-Wave JS.
+  domain: automation
+  input:
+    zooz_zen34:
+      name: Zooz ZEN34 Device
+      description: Select your Zooz ZEN34 remote switch.
+      selector:
+        device:
+          integration: zwave_js
+          manufacturer: Zooz
+          model: ZEN34
+    
+    # Upper Paddle (Button 1 / 001)
+    pressed_up:
+      name: Top Paddle - Pressed 1x
+      default: []
+      selector:
+        action: {}
+    pressed_up_2x:
+      name: Top Paddle - Pressed 2x
+      default: []
+      selector:
+        action: {}
+    pressed_up_3x:
+      name: Top Paddle - Pressed 3x
+      default: []
+      selector:
+        action: {}
+    held_up:
+      name: Top Paddle - Held Down
+      default: []
+      selector:
+        action: {}
+    released_up:
+      name: Top Paddle - Released
+      default: []
+      selector:
+        action: {}
 
+    # Lower Paddle (Button 2 / 002)
+    pressed_down:
+      name: Bottom Paddle - Pressed 1x
+      default: []
+      selector:
+        action: {}
+    pressed_down_2x:
+      name: Bottom Paddle - Pressed 2x
+      default: []
+      selector:
+        action: {}
+    pressed_down_3x:
+      name: Bottom Paddle - Pressed 3x
+      default: []
+      selector:
+        action: {}
+    held_down:
+      name: Bottom Paddle - Held Down
+      default: []
+      selector:
+        action: {}
+    released_down:
+      name: Bottom Paddle - Released
+      default: []
+      selector:
+        action: {}
+
+mode: restart
+max_exceeded: silent
+
+trigger:
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyPressed"
+    property: "scene"
+    endpoint: 0
+    value: "001"
+    id: pressed_up
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyPressed2x"
+    property: "scene"
+    endpoint: 0
+    value: "001"
+    id: pressed_up_2x
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyPressed3x"
+    property: "scene"
+    endpoint: 0
+    value: "001"
+    id: pressed_up_3x
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyHeldDown"
+    property: "scene"
+    endpoint: 0
+    value: "001"
+    id: held_up
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyReleased"
+    property: "scene"
+    endpoint: 0
+    value: "001"
+    id: released_up
+
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyPressed"
+    property: "scene"
+    endpoint: 0
+    value: "002"
+    id: pressed_down
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyPressed2x"
+    property: "scene"
+    endpoint: 0
+    value: "002"
+    id: pressed_down_2x
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyPressed3x"
+    property: "scene"
+    endpoint: 0
+    value: "002"
+    id: pressed_down_3x
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyHeldDown"
+    property: "scene"
+    endpoint: 0
+    value: "002"
+    id: held_down
+  - platform: device
+    device_id: !input zooz_zen34
+    domain: zwave_js
+    type: event
+    subtype: "KeyReleased"
+    property: "scene"
+    endpoint: 0
+    value: "002"
+    id: released_down
+
+action:
+  - choose:
+      - conditions:
+          - condition: trigger
+            id: pressed_up
+        sequence: !input pressed_up
+      - conditions:
+          - condition: trigger
+            id: pressed_up_2x
+        sequence: !input pressed_up_2x
+      - conditions:
+          - condition: trigger
+            id: pressed_up_3x
+        sequence: !input pressed_up_3x
+      - conditions:
+          - condition: trigger
+            id: held_up
+        sequence: !input held_up
+      - conditions:
+          - condition: trigger
+            id: released_up
+        sequence: !input released_up
+      - conditions:
+          - condition: trigger
+            id: pressed_down
+        sequence: !input pressed_down
+      - conditions:
+          - condition: trigger
+            id: pressed_down_2x
+        sequence: !input pressed_down_2x
+      - conditions:
+          - condition: trigger
+            id: pressed_down_3x
+        sequence: !input pressed_down_3x
+      - conditions:
+          - condition: trigger
+            id: held_down
+        sequence: !input held_down
+      - conditions:
+          - condition: trigger
+            id: released_down
+        sequence: !input released_down
