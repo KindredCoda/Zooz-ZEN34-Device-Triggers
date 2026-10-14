@@ -73,8 +73,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyPressed"
     property: "scene"
     endpoint: 0
@@ -83,8 +82,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyPressed2x"
     property: "scene"
     endpoint: 0
@@ -93,8 +91,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyPressed3x"
     property: "scene"
     endpoint: 0
@@ -103,8 +100,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyHeldDown"
     property: "scene"
     endpoint: 0
@@ -113,8 +109,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyReleased"
     property: "scene"
     endpoint: 0
@@ -124,8 +119,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyPressed"
     property: "scene"
     endpoint: 0
@@ -134,8 +128,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyPressed2x"
     property: "scene"
     endpoint: 0
@@ -144,8 +137,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyPressed3x"
     property: "scene"
     endpoint: 0
@@ -154,8 +146,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyHeldDown"
     property: "scene"
     endpoint: 0
@@ -164,8 +155,7 @@ trigger:
   - platform: device
     device_id: !input zooz_zen34
     domain: zwave_js
-    type: event
-    event_type: zwave_js_value_notification
+    type: event.value_notification.basic
     subtype: "KeyReleased"
     property: "scene"
     endpoint: 0
